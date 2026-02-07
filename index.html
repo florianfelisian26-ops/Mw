@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MWOMBEKI BARBERSHOP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#0b0f1a;
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+header h1{font-size:18px}
+
+/* MENU */
+.menu{font-size:26px;cursor:pointer}
+.nav{
+  position:fixed;
+  top:60px;
+  right:-260px;
+  width:250px;
+  height:100%;
+  background:#111;
+  transition:.4s;
+}
+.nav a{
+  display:block;
+  padding:15px;
+  border-bottom:1px solid #222;
+  color:#fff;
+  text-decoration:none;
+}
+.nav a:hover{background:#ff5722}
+.nav.show{right:0}
+
+/* SECTION */
+section{padding:80px 15px 30px}
+.title{color:#ff9800;margin-bottom:10px}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+/* CARD */
+.card{
+  background:#111;
+  border-radius:16px;
+  overflow:hidden;
+  animation:fadeUp .6s ease;
+  transition:.3s;
+}
+.card:hover{transform:scale(1.03)}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  animation:zoomIn .7s ease;
+}
+
+/* FALLBACK IF IMAGE FAILS */
+.card img:not([src]){
+  background:#222;
+}
+
+/* TEXT */
+.card span{
+  display:block;
+  text-align:center;
+  padding:8px;
+  font-size:14px;
+}
+
+/* SERVICES */
+.service{
+  background:#111;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+/* BUTTONS */
+.btn{
+  display:block;
+  margin:10px 0;
+  padding:15px;
+  border-radius:30px;
+  text-align:center;
+  font-weight:bold;
+  text-decoration:none;
+}
+.whatsapp{background:#25D366;color:#000}
+.call{background:#03a9f4;color:#fff}
+.email{background:#ff5722;color:#fff}
+.map{background:#9c27b0;color:#fff}
+
+/* FLOAT */
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px 18px;
+  border-radius:50px;
+  font-weight:bold;
+  color:#000;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes zoomIn{
+  from{transform:scale(1.1)}
+  to{transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>💈 MWOMBEKI BARBERSHOP</h1>
+  <div class="menu" onclick="toggle()">⋮⋮⋮</div>
+</header>
+
+<div class="nav" id="nav">
+  <a href="#home">🏠 Home</a>
+  <a href="#services">✂ Services</a>
+  <a href="#men">👨 Men Styles</a>
+  <a href="#women">👩 Women Styles</a>
+  <a href="#contact">📞 Contact</a>
+  <a href="#location">📍 Location</a>
+</div>
+
+<section id="home">
+  <h2 class="title">Karibu Mwombeki Barbershop</h2>
+  <p>Style za Kisasa • Ubora wa Kimataifa • Huduma Bora</p>
+</section>
+
+<section id="services">
+  <h2 class="title">Services</h2>
+  <div class="service">✔ Fade & Taper Cuts</div>
+  <div class="service">✔ Beard Styling</div>
+  <div class="service">✔ Ladies Hair Styling</div>
+  <div class="service">✔ Kids & Adults</div>
+</section>
+
+<section id="men">
+<h2 class="title">Men Styles (30)</h2>
+<div class="grid">
+<script>
+for(let i=1;i<=30;i++){
+document.write(`
+<div class="card">
+<img src="images/men/men${i}.jpg"
+onerror="this.src='https://source.unsplash.com/400x400/?men-haircut'">
+<span>Men Style ${i}</span>
+</div>`);
+}
+</script>
+</div>
+</section>
+
+<section id="women">
+<h2 class="title">Women Styles (30)</h2>
+<div class="grid">
+<script>
+for(let i=1;i<=30;i++){
+document.write(`
+<div class="card">
+<img src="images/women/women${i}.jpg"
+onerror="this.src='https://source.unsplash.com/400x400/?women-hairstyle'">
+<span>Women Style ${i}</span>
+</div>`);
+}
+</script>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact</h2>
+<a class="btn whatsapp" href="https://wa.me/255787504216">WhatsApp</a>
+<a class="btn call" href="tel:0787504216">Call</a>
+<a class="btn email" href="mailto:florianfelisian26@gmail.com">Email</a>
+</section>
+
+<section id="location">
+<h2 class="title">Location</h2>
+<a class="btn map" href="https://maps.google.com">Open Map</a>
+<p>📍 Tanzania</p>
+</section>
+
+<a class="float" href="https://wa.me/255787504216">WhatsApp</a>
+
+<script>
+function toggle(){
+document.getElementById("nav").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
